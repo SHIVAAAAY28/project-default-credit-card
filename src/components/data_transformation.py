@@ -30,11 +30,11 @@ class DataTransformation:
             logging.info('Data Transformation initiated')
                     
             
-            # Define which columns should be ordinal-encoded and which should be scaled
+            # Define which columns should be onehot-encoded and which should be scaled
             numerical_cols=["LIMIT_BAL","AGE","BILL_AMT1","PAY_AMT1","PAY_AMT2","PAY_AMT3","PAY_AMT4","PAY_AMT5","PAY_AMT6"]
             categor_cols=["SEX","EDUCATION","MARRIAGE","PAY_0","PAY_2","PAY_4"]
             
-            # Define the custom ranking for each ordinal variable
+            # Define onehot encoded  variable
             sex_cat=['1', '2']
             education_cat=["0","1","2","3","4","5","6"]
             marriage_cat=["0","1","2","3"]
@@ -57,7 +57,7 @@ class DataTransformation:
             cat_onehot_pipeline=Pipeline(
                 steps=[
                 ('imputer',SimpleImputer(strategy='most_frequent')),
-                ("onehotencoder",OneHotEncoder(categories=[sex_cat,education_cat,marriage_cat,pay0_cat,pay2_cat,pay4_cat],sparse=False)),
+                ("onehotencoder",OneHotEncoder(categories=[sex_cat,education_cat,marriage_cat,pay0_cat,pay2_cat,pay4_cat],sparse_output=False)),
                 ("scaler",StandardScaler())
                 ]
 

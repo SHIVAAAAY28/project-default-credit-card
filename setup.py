@@ -16,7 +16,7 @@ def get_requirements(file_path:str)->List[str]:
 
 
 setup(
-    name='Project_final_train_regressor',
+    name='Project_default _credit_card_logistic',
     version='0.0.1',
     author='Shivay',
     author_email='shivaaaay29@gmail.com',
